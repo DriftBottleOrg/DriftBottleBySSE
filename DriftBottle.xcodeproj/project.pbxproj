@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0919F0751A692BB00080E31C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0919F0731A692BB00080E31C /* Main.storyboard */; };
+		0919F0791A692DA20080E31C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 0919F0781A692DA20080E31C /* Reachability.m */; };
+		0919F07B1A692E010080E31C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0919F07A1A692E010080E31C /* SystemConfiguration.framework */; };
+		0919F07D1A693AC30080E31C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0919F07C1A693AC30080E31C /* CFNetwork.framework */; };
+		0919F07F1A693AD10080E31C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0919F07E1A693AD10080E31C /* libz.dylib */; };
+		0919F0811A693ADE0080E31C /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0919F0801A693ADE0080E31C /* libxml2.dylib */; };
+		0919F0A01A693C840080E31C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0919F09F1A693C840080E31C /* MobileCoreServices.framework */; };
 		846064691A3F0DF2008F375E /* FishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846064681A3F0DF2008F375E /* FishViewController.m */; };
 		8460646D1A3F0E18008F375E /* ThrowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8460646C1A3F0E18008F375E /* ThrowViewController.m */; };
 		846064711A3F0E37008F375E /* MyBottleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846064701A3F0E37008F375E /* MyBottleViewController.m */; };
@@ -20,7 +27,6 @@
 		84B9D6E91A41A68F00798E97 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B9D6E81A41A68F00798E97 /* TabBarViewController.m */; };
 		84B9D6ED1A41AC2900798E97 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B9D6EC1A41AC2900798E97 /* LoginViewController.m */; };
 		84BA61C11A3F2BCE00AE0AFC /* EditSelfViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BA61C01A3F2BCE00AE0AFC /* EditSelfViewController.m */; };
-		84BE55E51A447A3100C6BB0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84BE55E41A447A3100C6BB0D /* Main.storyboard */; };
 		84C2C3461A4BFDFB00613BF3 /* NormalBottleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C2C3451A4BFDFB00613BF3 /* NormalBottleViewController.m */; };
 		84C322C41A4412BB00454A0F /* FriendsInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C322C31A4412BB00454A0F /* FriendsInfo.m */; };
 		84C322C71A44189900454A0F /* AddFriendUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C322C61A44189900454A0F /* AddFriendUIViewController.m */; };
@@ -39,6 +45,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0919F0741A692BB00080E31C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0919F0771A692DA20080E31C /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		0919F0781A692DA20080E31C /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		0919F07A1A692E010080E31C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		0919F07C1A693AC30080E31C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		0919F07E1A693AD10080E31C /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		0919F0801A693ADE0080E31C /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		0919F09F1A693C840080E31C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		846064671A3F0DF2008F375E /* FishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FishViewController.h; sourceTree = "<group>"; };
 		846064681A3F0DF2008F375E /* FishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FishViewController.m; sourceTree = "<group>"; };
 		8460646B1A3F0E18008F375E /* ThrowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThrowViewController.h; sourceTree = "<group>"; };
@@ -65,7 +79,6 @@
 		84B9D6EC1A41AC2900798E97 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		84BA61BF1A3F2BCE00AE0AFC /* EditSelfViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditSelfViewController.h; sourceTree = "<group>"; };
 		84BA61C01A3F2BCE00AE0AFC /* EditSelfViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditSelfViewController.m; sourceTree = "<group>"; };
-		84BE55E41A447A3100C6BB0D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../../.Trash/Main.storyboard; sourceTree = "<group>"; };
 		84C2C3441A4BFDFB00613BF3 /* NormalBottleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalBottleViewController.h; sourceTree = "<group>"; };
 		84C2C3451A4BFDFB00613BF3 /* NormalBottleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NormalBottleViewController.m; sourceTree = "<group>"; };
 		84C322C21A4412BB00454A0F /* FriendsInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsInfo.h; sourceTree = "<group>"; };
@@ -83,6 +96,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0919F0A01A693C840080E31C /* MobileCoreServices.framework in Frameworks */,
+				0919F0811A693ADE0080E31C /* libxml2.dylib in Frameworks */,
+				0919F07F1A693AD10080E31C /* libz.dylib in Frameworks */,
+				0919F07D1A693AC30080E31C /* CFNetwork.framework in Frameworks */,
+				0919F07B1A692E010080E31C /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +114,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0919F0761A692D620080E31C /* NetHelper */ = {
+			isa = PBXGroup;
+			children = (
+				0919F0771A692DA20080E31C /* Reachability.h */,
+				0919F0781A692DA20080E31C /* Reachability.m */,
+			);
+			name = NetHelper;
+			sourceTree = "<group>";
+		};
 		846064661A3F0DAF008F375E /* 我捞 */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +168,11 @@
 		84B722401A3D54A2008769BE = {
 			isa = PBXGroup;
 			children = (
+				0919F09F1A693C840080E31C /* MobileCoreServices.framework */,
+				0919F0801A693ADE0080E31C /* libxml2.dylib */,
+				0919F07E1A693AD10080E31C /* libz.dylib */,
+				0919F07C1A693AC30080E31C /* CFNetwork.framework */,
+				0919F07A1A692E010080E31C /* SystemConfiguration.framework */,
 				84B7224B1A3D54A2008769BE /* DriftBottle */,
 				84B722651A3D54A3008769BE /* DriftBottleTests */,
 				84B7224A1A3D54A2008769BE /* Products */,
@@ -159,6 +191,7 @@
 		84B7224B1A3D54A2008769BE /* DriftBottle */ = {
 			isa = PBXGroup;
 			children = (
+				0919F0761A692D620080E31C /* NetHelper */,
 				84CB38A21A4299B00041F7B8 /* Entities */,
 				84B9D6EA1A41AC0000798E97 /* 登录和注册 */,
 				846064721A3F0E3D008F375E /* 好友 */,
@@ -166,7 +199,7 @@
 				8460646A1A3F0DFA008F375E /* 我扔 */,
 				846064661A3F0DAF008F375E /* 我捞 */,
 				84B722501A3D54A2008769BE /* AppDelegate.h */,
-				84BE55E41A447A3100C6BB0D /* Main.storyboard */,
+				0919F0731A692BB00080E31C /* Main.storyboard */,
 				84B722511A3D54A2008769BE /* AppDelegate.m */,
 				84B722531A3D54A2008769BE /* ViewController.h */,
 				84B722541A3D54A2008769BE /* ViewController.m */,
@@ -307,7 +340,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84BE55E51A447A3100C6BB0D /* Main.storyboard in Resources */,
+				0919F0751A692BB00080E31C /* Main.storyboard in Resources */,
 				84B7225D1A3D54A3008769BE /* LaunchScreen.xib in Resources */,
 				84B7225A1A3D54A2008769BE /* Images.xcassets in Resources */,
 			);
@@ -337,6 +370,7 @@
 				846064751A3F0E4F008F375E /* FriendsViewController.m in Sources */,
 				84B722551A3D54A2008769BE /* ViewController.m in Sources */,
 				8460646D1A3F0E18008F375E /* ThrowViewController.m in Sources */,
+				0919F0791A692DA20080E31C /* Reachability.m in Sources */,
 				84CB38A81A429E8E0041F7B8 /* RegisterViewController.m in Sources */,
 				84C322C71A44189900454A0F /* AddFriendUIViewController.m in Sources */,
 				84B722521A3D54A2008769BE /* AppDelegate.m in Sources */,
@@ -364,6 +398,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		0919F0731A692BB00080E31C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0919F0741A692BB00080E31C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		84B7225B1A3D54A3008769BE /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

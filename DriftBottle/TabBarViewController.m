@@ -7,6 +7,7 @@
 //
 
 #import "TabBarViewController.h"
+#import "Reachability.h"
 
 @interface TabBarViewController ()
 
@@ -17,6 +18,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"TabBarViewController");
+    
+    //判断网络类型，wifi/3G4G
+    Reachability *netReach = [Reachability reachabilityForLocalWiFi];
+    switch ([netReach currentReachabilityStatus]) {
+        case NotReachable:
+            NSLog(@"can't reach net");
+            break;
+        case ReachableViaWiFi:
+            NSLog(@"net type:wifi");
+            break;
+        case ReachableViaWWAN:
+            NSLog(@"net type:3G/4G");
+            break;
+        default:
+            break;
+    }
     // Do any additional setup after loading the view.
 }
 

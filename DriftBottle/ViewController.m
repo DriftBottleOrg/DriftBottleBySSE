@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "TabBarViewController.h"
 
+
 @interface ViewController ()
 
 @end
@@ -41,7 +42,11 @@
         [self addChildViewController:self.loginViewController];
     }
     NSLog(@"sd++%@",self.loginViewController.userName.text);
+    
+    
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
