@@ -19,7 +19,7 @@
 
 
 - (void)addMessage:(Message *)message;
-
+- (NSMutableArray *)getMessage;
 
 
 @end

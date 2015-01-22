@@ -7,31 +7,140 @@
 //
 
 #import "MyBottleViewController.h"
+#import "EditSelfViewController.h"
+#import "Bottle.h"
+#import "BottleInfoViewController.h"
 
 @interface MyBottleViewController ()
-
+@property (strong, nonatomic)NSMutableArray *bottleArray;
+@property (strong, nonatomic) NSMutableArray *friendsList;
+@property (strong, nonatomic) IBOutlet UITableView *friendsTable;
+@property (strong, nonatomic)BottleInfoViewController *bottleInfoViewController;
+@property double tableHeight;
 @end
 
 @implementation MyBottleViewController
+@synthesize bottleArray = _bottleArray,bottleInfoViewController = _bottleInfoViewController;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self prepareForTable];
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)setBottleArray:(NSMutableArray *)bottleArray
+{
+    _bottleArray = bottleArray;
+}
+- (NSMutableArray *)bottleArray
+{
+    if(!_bottleArray)
+    {
+        _bottleArray = [[NSMutableArray alloc] init];
+    }
+    return _bottleArray;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+//从storyBoard中获取某个UIViewController
+- (id)getObject:(NSString *)objectId{
+    
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    return [storyBoard instantiateViewControllerWithIdentifier:objectId];
 }
-*/
 
+//跳转的准备工作
+- (void)prepareForSegue:(NSInteger *)row
+{
+    if(!_bottleInfoViewController){
+        //_bottleInfoViewController = (BottleInfoViewController *)[[self getObject:@"bottleInfoViewController"];
+        _bottleInfoViewController = [self getObject:@"bottleInfoViewController"];
+        [_bottleInfoViewController setBottle:[self.bottleArray objectAtIndex:row]];
+        [self.view addSubview:_bottleInfoViewController.view];
+        
+    }
+}
+
+
+//这个方法返回该有几个cell
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    //return [self.friendsList count];
+    return [self.bottleArray count];
+}
+
+//为UIViewController添加TableView
+- (void)prepareForTable
+{
+   // NSMutableArray *list = [NSMutableArray arrayWithObjects:@"Tom",@"Mike",@"Lucy",@"Sheldon",@"Leonard",@"Raj",@"Amy",@"Java",@"C",@"C++",@"C#",@"J2EE",@"JSP",@"Objective-C", nil];
+    
+    Bottle *bottle1 = [[Bottle alloc] init];
+    Message *message11 = [[Message alloc] init];
+    message11.sender = @"message11";
+    message11.content = @"content11";
+    [bottle1.messageArray addObject:message11];
+    [bottle1 setThrower:@"Tom"];
+    
+    Bottle *bottle2 = [[Bottle alloc] init];
+    Message *message21 = [[Message alloc] init];
+    message21.sender = @"message21";
+    message21.content = @"content21";
+    Message *message22 = [[Message alloc] init];
+    message22.sender = @"message22";
+    message22.content = @"content22";
+    [bottle2 setThrower:@"Mike"];
+    [bottle2.messageArray addObject:message21];
+    [bottle2.messageArray addObject:message22];
+    
+    [self.bottleArray addObject:bottle1];
+    [self.bottleArray addObject:bottle2];
+    
+    self.tableHeight = [self.bottleArray count]*44;
+    //self.friendsList = list;
+    NSLog(@"height is :%f,width is :%f",self.view.frame.size.height,self.view.frame.size.width);
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, 320, self.tableHeight) style:UITableViewStylePlain];
+   // UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 122, 320, 397) style:UITableViewStylePlain];
+    //UITableView *tab = [[UITableView alloc] init];
+    [tableView setBackgroundColor:[UIColor grayColor]];
+    self.friendsTable = tableView;
+    self.friendsTable.dataSource = self;
+    self.friendsTable.delegate = self;
+    [self.view addSubview:self.friendsTable];
+    
+    
+}
+
+//自动调用，设置cell的样式
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellWithIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellWithIdentifier];
+    if(cell == nil){
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellWithIdentifier];
+    }
+    NSUInteger row = [indexPath row];
+    //cell.textLabel.text = [self.friendsList objectAtIndex:row];
+    Bottle *bottle = [[Bottle alloc] init];
+    bottle = [self.bottleArray objectAtIndex:row];
+//    NSString *string = [NSString initW]
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"%@%@",@"This bottle was from:",bottle.thrower];
+    cell.imageView.image = [UIImage imageNamed:@"headPicture"];
+    CGRect cellFrame = [cell frame];
+    //cellFrame.origin = CGPointMake(0, 0);
+   
+    //cellFrame.size.height = cellFrame.size.height + 40;
+    //[cell setFrame:cellFrame];
+    NSLog(@"cell height:%f,and width:%f",cellFrame.size.height,cellFrame.size.width);
+    return cell;
+}
+
+//当点击某个cell时调用
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger row = [indexPath row];
+    NSLog(@"row is %lu,index is %@",(unsigned long)row,indexPath);
+    
+    [self prepareForSegue:row];
+    return indexPath;
+}
 @end

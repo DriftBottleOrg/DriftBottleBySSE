@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MyBottleViewController : UIViewController
+@interface MyBottleViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 @end

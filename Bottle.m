@@ -56,5 +56,9 @@
 {
     [self.messageArray addObject:message];
 }
+- (NSMutableArray *)getMessage
+{
+    return self.messageArray;
+}
 
 @end

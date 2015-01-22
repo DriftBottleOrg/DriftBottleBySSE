@@ -137,7 +137,7 @@
             </objects>
             <point key="canvasLocation" x="1202" y="362"/>
         </scene>
-        <!--My Bottle View Controller-->
+        <!--我的瓶子-->
         <scene sceneID="LpL-nl-ycK">
             <objects>
                 <viewController id="zKi-w5-pG5" customClass="MyBottleViewController" sceneMemberID="viewController">
@@ -149,20 +149,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="我的瓶子" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x3y-4m-0MC">
-                                <rect key="frame" x="123" y="308" width="84" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j3u-zE-oF2">
+                                <rect key="frame" x="151" y="197" width="30" height="30"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="FxZ-JH-cRD" kind="push" id="Gpm-qj-IgW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="DpB-Xc-e4k"/>
+                    <navigationItem key="navigationItem" title="我的瓶子" id="DpB-Xc-e4k"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6pi-ZQ-Gez" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2647" y="-1133"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="ndl-oJ-R9z">
+            <objects>
+                <viewController storyboardIdentifier="bottleInfoViewController" id="FxZ-JH-cRD" customClass="BottleInfoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KoE-Ci-IzN"/>
+                        <viewControllerLayoutGuide type="bottom" id="AtB-42-TPm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qoJ-SW-PZW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dW3-LF-YFS">
+                                <rect key="frame" x="0.0" y="436" width="246" height="83"/>
+                                <color key="backgroundColor" red="0.2249211052" green="1" blue="0.99843423840000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fhi-Y0-DNh">
+                                <rect key="frame" x="247" y="463" width="73" height="38"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <state key="normal" title="回复">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="headPicture" translatesAutoresizingMaskIntoConstraints="NO" id="pLL-qC-5ze">
+                                <rect key="frame" x="0.0" y="64" width="153" height="100"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" prompt="" id="rDW-Xl-ax2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5PU-Uh-An5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3014" y="-1129"/>
         </scene>
         <!--Edit Self View Controller-->
         <scene sceneID="6O8-ro-jgX">
@@ -387,12 +427,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="好友" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xo7-yS-AGE">
-                                <rect key="frame" x="139" y="258" width="34" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cpA-gd-LSi">
                                 <rect key="frame" x="0.0" y="64" width="75" height="57"/>
                             </imageView>
@@ -413,6 +447,12 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="这是我的备注" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wvC-nK-Fo9">
                                 <rect key="frame" x="83" y="94" width="194" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="好友" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xo7-yS-AGE">
+                                <rect key="frame" x="143" y="258" width="34" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -588,6 +628,7 @@
         <image name="bottles" width="60" height="60"/>
         <image name="fish" width="60" height="60"/>
         <image name="friends" width="60" height="60"/>
+        <image name="headPicture" width="544" height="442"/>
         <image name="throw" width="60" height="60"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

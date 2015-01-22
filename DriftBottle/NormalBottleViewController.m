@@ -7,13 +7,44 @@
 //
 
 #import "NormalBottleViewController.h"
+#import "Bottle.h"
+#import "Message.h"
 
 @interface NormalBottleViewController ()
 @property (strong, nonatomic) IBOutlet UITextView *textView;
+@property (strong, nonatomic)Bottle *bottle;
+@property (strong, nonatomic)Message *message;
 
 @end
 
 @implementation NormalBottleViewController
+@synthesize bottle = _bottle,message = _message;
+
+- (void)setBottle:(Bottle *)bottle
+{
+    _bottle = bottle;
+}
+- (Bottle *)bottle
+{
+    if(!_bottle){
+        _bottle = [[Bottle alloc] init];
+    }
+    return _bottle;
+}
+
+- (void)setMessage:(Message *)message
+{
+    _message = message;
+}
+- (Message *)message
+{
+    if(!_message){
+        _message = [[Message alloc] init];
+    }
+    return _message;
+}
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -23,6 +54,17 @@
     
 }
 - (IBAction)send:(id)sender {
+    [self.message setSender:@"self"];
+    NSString *content = self.textView.text;
+    [self.message setContent:content];
+    [self.bottle setThrower:@"self"];
+    [self.bottle addMessage:self.message];
+    NSMutableArray *messageArray = [[NSMutableArray alloc] init];
+    messageArray = [self.bottle getMessage];
+    for(Message *mess in messageArray)
+    {
+        NSLog(@"%@",mess.content);
+    }
     
 }
 
