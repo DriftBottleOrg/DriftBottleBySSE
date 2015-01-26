@@ -21,6 +21,7 @@
 		84AA62701A6FC3E1009A2D0D /* Bottle.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AA626D1A6FC3E1009A2D0D /* Bottle.m */; };
 		84AA62711A6FC3E1009A2D0D /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AA626F1A6FC3E1009A2D0D /* Message.m */; };
 		84AA62741A70E15E009A2D0D /* BottleInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AA62731A70E15E009A2D0D /* BottleInfoViewController.m */; };
+		84B064BE1A72A8600013DC47 /* fishSucceedGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 84B064BD1A72A85F0013DC47 /* fishSucceedGif.gif */; };
 		84B7224F1A3D54A2008769BE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B7224E1A3D54A2008769BE /* main.m */; };
 		84B722521A3D54A2008769BE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B722511A3D54A2008769BE /* AppDelegate.m */; };
 		84B722551A3D54A2008769BE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B722541A3D54A2008769BE /* ViewController.m */; };
@@ -30,6 +31,8 @@
 		84B9D6E91A41A68F00798E97 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B9D6E81A41A68F00798E97 /* TabBarViewController.m */; };
 		84B9D6ED1A41AC2900798E97 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B9D6EC1A41AC2900798E97 /* LoginViewController.m */; };
 		84BA61C11A3F2BCE00AE0AFC /* EditSelfViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BA61C01A3F2BCE00AE0AFC /* EditSelfViewController.m */; };
+		84C19E831A728EEF00488AF6 /* NSUserDefaultsDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C19E821A728EEF00488AF6 /* NSUserDefaultsDao.m */; };
+		84C19E851A72A1F000488AF6 /* fishFailGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 84C19E841A72A1F000488AF6 /* fishFailGif.gif */; };
 		84C2C3461A4BFDFB00613BF3 /* NormalBottleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C2C3451A4BFDFB00613BF3 /* NormalBottleViewController.m */; };
 		84C322C41A4412BB00454A0F /* FriendsInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C322C31A4412BB00454A0F /* FriendsInfo.m */; };
 		84C322C71A44189900454A0F /* AddFriendUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C322C61A44189900454A0F /* AddFriendUIViewController.m */; };
@@ -70,6 +73,7 @@
 		84AA626F1A6FC3E1009A2D0D /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Message.m; path = ../Message.m; sourceTree = "<group>"; };
 		84AA62721A70E15E009A2D0D /* BottleInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BottleInfoViewController.h; sourceTree = "<group>"; };
 		84AA62731A70E15E009A2D0D /* BottleInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BottleInfoViewController.m; sourceTree = "<group>"; };
+		84B064BD1A72A85F0013DC47 /* fishSucceedGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = fishSucceedGif.gif; sourceTree = "<group>"; };
 		84B722491A3D54A2008769BE /* DriftBottle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DriftBottle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B7224D1A3D54A2008769BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84B7224E1A3D54A2008769BE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -88,6 +92,9 @@
 		84B9D6EC1A41AC2900798E97 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		84BA61BF1A3F2BCE00AE0AFC /* EditSelfViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditSelfViewController.h; sourceTree = "<group>"; };
 		84BA61C01A3F2BCE00AE0AFC /* EditSelfViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditSelfViewController.m; sourceTree = "<group>"; };
+		84C19E811A728EEF00488AF6 /* NSUserDefaultsDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSUserDefaultsDao.h; sourceTree = "<group>"; };
+		84C19E821A728EEF00488AF6 /* NSUserDefaultsDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSUserDefaultsDao.m; sourceTree = "<group>"; };
+		84C19E841A72A1F000488AF6 /* fishFailGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = fishFailGif.gif; sourceTree = "<group>"; };
 		84C2C3441A4BFDFB00613BF3 /* NormalBottleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalBottleViewController.h; sourceTree = "<group>"; };
 		84C2C3451A4BFDFB00613BF3 /* NormalBottleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NormalBottleViewController.m; sourceTree = "<group>"; };
 		84C322C21A4412BB00454A0F /* FriendsInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsInfo.h; sourceTree = "<group>"; };
@@ -202,6 +209,7 @@
 		84B7224B1A3D54A2008769BE /* DriftBottle */ = {
 			isa = PBXGroup;
 			children = (
+				84C19E801A728E9600488AF6 /* NSUserDefaults */,
 				0919F0761A692D620080E31C /* NetHelper */,
 				84CB38A21A4299B00041F7B8 /* Entities */,
 				84B9D6EA1A41AC0000798E97 /* 登录和注册 */,
@@ -226,6 +234,8 @@
 		84B7224C1A3D54A2008769BE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				84C19E841A72A1F000488AF6 /* fishFailGif.gif */,
+				84B064BD1A72A85F0013DC47 /* fishSucceedGif.gif */,
 				84B7224D1A3D54A2008769BE /* Info.plist */,
 				84B7224E1A3D54A2008769BE /* main.m */,
 			);
@@ -258,6 +268,15 @@
 				84CB38A71A429E8E0041F7B8 /* RegisterViewController.m */,
 			);
 			name = "登录和注册";
+			sourceTree = "<group>";
+		};
+		84C19E801A728E9600488AF6 /* NSUserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				84C19E811A728EEF00488AF6 /* NSUserDefaultsDao.h */,
+				84C19E821A728EEF00488AF6 /* NSUserDefaultsDao.m */,
+			);
+			name = NSUserDefaults;
 			sourceTree = "<group>";
 		};
 		84CB38A21A4299B00041F7B8 /* Entities */ = {
@@ -355,9 +374,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84B064BE1A72A8600013DC47 /* fishSucceedGif.gif in Resources */,
 				0919F0751A692BB00080E31C /* Main.storyboard in Resources */,
 				84B7225D1A3D54A3008769BE /* LaunchScreen.xib in Resources */,
 				84B7225A1A3D54A2008769BE /* Images.xcassets in Resources */,
+				84C19E851A72A1F000488AF6 /* fishFailGif.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,6 +398,7 @@
 			files = (
 				84B9D6E91A41A68F00798E97 /* TabBarViewController.m in Sources */,
 				84AA62741A70E15E009A2D0D /* BottleInfoViewController.m in Sources */,
+				84C19E831A728EEF00488AF6 /* NSUserDefaultsDao.m in Sources */,
 				846064711A3F0E37008F375E /* MyBottleViewController.m in Sources */,
 				84CB38A51A429A150041F7B8 /* UserNameAndPassWord.m in Sources */,
 				846064691A3F0DF2008F375E /* FishViewController.m in Sources */,

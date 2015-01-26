@@ -20,7 +20,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self prepareForTable];
+    NSLog(@"bottle info view controller");
+    [self setTitle:@"info"];
 }
+
 
 - (void)setBottle:(Bottle *)bottle
 {
@@ -29,7 +32,6 @@
 - (Bottle *)bottle
 {
     if(!_bottle){
-        NSLog(@"wrong");
         return nil;
     }
     return _bottle;
@@ -45,9 +47,8 @@
 
 - (void)prepareForTable
 {
-
-    NSMutableArray *message = [self.bottle messageArray];
-    double height = [message count]*44;
+    NSMutableArray *messageArray = [self.bottle messageArray];
+    double height = [messageArray count]*44;
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 164, 320, height) style:UITableViewStylePlain];
     //tableView.dataSource = self;
     //tableView.delegate = self;

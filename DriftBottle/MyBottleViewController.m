@@ -10,22 +10,26 @@
 #import "EditSelfViewController.h"
 #import "Bottle.h"
 #import "BottleInfoViewController.h"
+#import "NSUserDefaultsDao.h"
 
 @interface MyBottleViewController ()
 @property (strong, nonatomic)NSMutableArray *bottleArray;
 @property (strong, nonatomic) NSMutableArray *friendsList;
 @property (strong, nonatomic) IBOutlet UITableView *friendsTable;
 @property (strong, nonatomic)BottleInfoViewController *bottleInfoViewController;
+@property (strong, nonatomic)NSUserDefaultsDao *nsUserDefaultsDao;
 @property double tableHeight;
 @end
 
 @implementation MyBottleViewController
-@synthesize bottleArray = _bottleArray,bottleInfoViewController = _bottleInfoViewController;
+@synthesize bottleArray = _bottleArray,bottleInfoViewController = _bottleInfoViewController,nsUserDefaultsDao = _nsUserDefaultsDao;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self prepareForTable];
-    // Do any additional setup after loading the view.
+    //self.navigationItem.title = @"friends";
+    //self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"info" style:UIBarButtonItemStylePlain target:self action:@selector(toInfo)];
+   // self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"back" style:UIBarButtonItemStyleDone target:nil action:nil];
 }
 
 - (void)setBottleArray:(NSMutableArray *)bottleArray
@@ -41,6 +45,14 @@
     return _bottleArray;
 }
 
+- (NSUserDefaultsDao *)nsUserDefaultsDao
+{
+    if(!_nsUserDefaultsDao){
+        _nsUserDefaultsDao = [[NSUserDefaultsDao alloc] init];
+    }
+    return _nsUserDefaultsDao;
+}
+
 //从storyBoard中获取某个UIViewController
 - (id)getObject:(NSString *)objectId{
     
@@ -51,13 +63,12 @@
 //跳转的准备工作
 - (void)prepareForSegue:(NSInteger *)row
 {
-    if(!_bottleInfoViewController){
-        //_bottleInfoViewController = (BottleInfoViewController *)[[self getObject:@"bottleInfoViewController"];
+    //if(!_bottleInfoViewController){
         _bottleInfoViewController = [self getObject:@"bottleInfoViewController"];
-        [_bottleInfoViewController setBottle:[self.bottleArray objectAtIndex:row]];
-        [self.view addSubview:_bottleInfoViewController.view];
-        
-    }
+    //}
+    NSLog(@"row is %ld",(long)row);
+    [_bottleInfoViewController setBottle:[self.bottleArray objectAtIndex:row]];
+    [self.navigationController pushViewController:_bottleInfoViewController animated:YES];
 }
 
 
@@ -93,6 +104,8 @@
     
     [self.bottleArray addObject:bottle1];
     [self.bottleArray addObject:bottle2];
+    
+    //[self.nsUserDefaultsDao addObject:self.bottleArray forKey:@"bottleArray"];
     
     self.tableHeight = [self.bottleArray count]*44;
     //self.friendsList = list;
@@ -141,6 +154,7 @@
     NSLog(@"row is %lu,index is %@",(unsigned long)row,indexPath);
     
     [self prepareForSegue:row];
+    NSLog(@"this is a click%ld",(long)row);
     return indexPath;
 }
 @end
