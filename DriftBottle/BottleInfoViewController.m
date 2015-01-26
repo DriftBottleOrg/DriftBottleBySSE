@@ -8,14 +8,18 @@
 
 #import "BottleInfoViewController.h"
 #import "Bottle.h"
+#import "Message.h"
+#import "NSUserDefaultsDao.h"
 
 @interface BottleInfoViewController ()
-@property (strong, nonatomic)Bottle *bottle;
-@property (strong, nonatomic) IBOutlet UITableView *friendsTable;
+@property (strong, nonatomic) Bottle *bottle;
+@property (strong, nonatomic) IBOutlet UITableView *messageTable;
+@property (strong, nonatomic) IBOutlet UITextView *textView;
+@property (strong, nonatomic) NSUserDefaultsDao *nsUserDefaultsDao;
 @end
 
 @implementation BottleInfoViewController
-@synthesize bottle = _bottle;
+@synthesize bottle = _bottle,index;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,6 +40,13 @@
     }
     return _bottle;
 }
+- (NSUserDefaultsDao *)nsUserDefaultsDao
+{
+    if(!_nsUserDefaultsDao){
+        _nsUserDefaultsDao = [[NSUserDefaultsDao alloc] init];
+    }
+    return _nsUserDefaultsDao;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -53,10 +64,11 @@
     //tableView.dataSource = self;
     //tableView.delegate = self;
     [tableView setBackgroundColor:[UIColor grayColor]];
-    self.friendsTable = tableView;
-    self.friendsTable.dataSource = self;
-    self.friendsTable.delegate = self;
-    [self.view addSubview:self.friendsTable];
+    self.messageTable = tableView;
+    self.messageTable.dataSource = self;
+    self.messageTable.delegate = self;
+    self.messageTable.tag = 2000;
+    [self.view addSubview:self.messageTable];
     
     
 }
@@ -80,6 +92,26 @@
     NSUInteger row = [indexPath row];
     NSLog(@"row is %lu,index is %@",(unsigned long)row,indexPath);
     return indexPath;
+}
+
+- (IBAction)reply:(id)sender {
+    Message *message = [[Message alloc] init];
+    message.sender = @"self";
+    message.content = self.textView.text;
+    [self.bottle.messageArray addObject:message];
+    NSData *bottleData = [NSKeyedArchiver archivedDataWithRootObject:self.bottle];
+    
+    NSMutableArray *mutableBottleArray = [self.nsUserDefaultsDao getObject:@"bottleArray"];
+    [mutableBottleArray replaceObjectAtIndex:self.index withObject:bottleData];
+    [self.nsUserDefaultsDao addObject:mutableBottleArray forKey:@"bottleArray"];
+    
+    UIView *view = [self.view viewWithTag:2000];
+    [view removeFromSuperview];
+    self.textView.text = nil;
+    [self prepareForTable];
+    //[self.friendsTable reloadData];
+    //[mutableBottleArray removeObjectAtIndex:self.index];
+    //[mutableBottleArray addObjec]
 }
 
 //- (void)viewDidAppear:(BOOL)animated

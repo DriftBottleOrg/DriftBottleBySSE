@@ -30,6 +30,7 @@
 
 - (void)addObject:(id)object forKey:(NSString *)key
 {
+    NSLog(@"addObject forKey");
     [self.nsUserDefaults setObject:object forKey:key];
     [self.nsUserDefaults synchronize];
 }

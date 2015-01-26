@@ -9,41 +9,22 @@
 #import "NormalBottleViewController.h"
 #import "Bottle.h"
 #import "Message.h"
+#import "NSUserDefaultsDao.h"
 
 @interface NormalBottleViewController ()
 @property (strong, nonatomic) IBOutlet UITextView *textView;
-@property (strong, nonatomic)Bottle *bottle;
-@property (strong, nonatomic)Message *message;
-
+@property (strong, nonatomic) NSUserDefaultsDao *nsUserDefaultsDao;
 @end
 
 @implementation NormalBottleViewController
-@synthesize bottle = _bottle,message = _message;
 
-- (void)setBottle:(Bottle *)bottle
+- (NSUserDefaultsDao *)nsUserDefaultsDao
 {
-    _bottle = bottle;
-}
-- (Bottle *)bottle
-{
-    if(!_bottle){
-        _bottle = [[Bottle alloc] init];
+    if(!_nsUserDefaultsDao){
+        _nsUserDefaultsDao = [[NSUserDefaultsDao alloc] init];
     }
-    return _bottle;
+    return _nsUserDefaultsDao;
 }
-
-- (void)setMessage:(Message *)message
-{
-    _message = message;
-}
-- (Message *)message
-{
-    if(!_message){
-        _message = [[Message alloc] init];
-    }
-    return _message;
-}
-
 
 
 - (void)viewDidLoad {
@@ -54,33 +35,26 @@
     
 }
 - (IBAction)send:(id)sender {
-    [self.message setSender:@"self"];
-    NSString *content = self.textView.text;
-    [self.message setContent:content];
-    [self.bottle setThrower:@"self"];
-    [self.bottle addMessage:self.message];
-    NSMutableArray *messageArray = [[NSMutableArray alloc] init];
-    messageArray = [self.bottle getMessage];
-    for(Message *mess in messageArray)
-    {
-        NSLog(@"%@",mess.content);
-    }
+    Message *message = [[Message alloc] init];
+    message.sender = @"self";
+    message.content = self.textView.text;
+    
+    Bottle *bottle = [[Bottle alloc] init];
+    bottle.thrower = @"mySelf";
+    [bottle.messageArray addObject:message];
+    
+    NSData *bottleData = [NSKeyedArchiver archivedDataWithRootObject:bottle];
+    
+    NSMutableArray *mutableBottleArray = [self.nsUserDefaultsDao getObject:@"bottleArray"];
+    [mutableBottleArray addObject:bottleData];
+    //[mutableBottleArray replaceObjectAtIndex:self.index withObject:bottleData];
+    [self.nsUserDefaultsDao addObject:mutableBottleArray forKey:@"bottleArray"];
+
+    
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -10,7 +10,7 @@
 #import "Bottle.h"
 
 @interface BottleInfoViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
-
+@property  NSUInteger *index;
 - (void)setBottle:(Bottle *)bottle;
 - (Bottle *)bottle;
 

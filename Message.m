@@ -34,4 +34,19 @@
     return _content;
 }
 
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    if(self = [super init])
+    {
+        self.sender = [aDecoder decodeObjectForKey:@"sender"];
+        self.content = [aDecoder decodeObjectForKey:@"content"];
+    }
+    return self;
+}
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.sender forKey:@"sender"];
+    [aCoder encodeObject:self.content forKey:@"content"];
+}
+
 @end

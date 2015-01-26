@@ -177,24 +177,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dW3-LF-YFS">
-                                <rect key="frame" x="0.0" y="436" width="246" height="83"/>
+                                <rect key="frame" x="0.0" y="440" width="246" height="83"/>
                                 <color key="backgroundColor" red="0.2249211052" green="1" blue="0.99843423840000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="headPicture" translatesAutoresizingMaskIntoConstraints="NO" id="pLL-qC-5ze">
+                                <rect key="frame" x="0.0" y="64" width="153" height="100"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fhi-Y0-DNh">
                                 <rect key="frame" x="247" y="463" width="73" height="38"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <state key="normal" title="回复">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="reply:" destination="FxZ-JH-cRD" eventType="touchUpInside" id="eVS-Fv-eUy"/>
+                                </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="headPicture" translatesAutoresizingMaskIntoConstraints="NO" id="pLL-qC-5ze">
-                                <rect key="frame" x="0.0" y="64" width="153" height="100"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="textView" destination="dW3-LF-YFS" id="xz5-PK-Dsk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5PU-Uh-An5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -290,7 +296,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AzG-wL-yof" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2115" y="-482"/>
+            <point key="canvasLocation" x="2115" y="-480"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="czT-fw-9dW">

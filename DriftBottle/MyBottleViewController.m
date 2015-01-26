@@ -14,8 +14,7 @@
 
 @interface MyBottleViewController ()
 @property (strong, nonatomic)NSMutableArray *bottleArray;
-@property (strong, nonatomic) NSMutableArray *friendsList;
-@property (strong, nonatomic) IBOutlet UITableView *friendsTable;
+@property (strong, nonatomic) IBOutlet UITableView *bottleTable;
 @property (strong, nonatomic)BottleInfoViewController *bottleInfoViewController;
 @property (strong, nonatomic)NSUserDefaultsDao *nsUserDefaultsDao;
 @property double tableHeight;
@@ -29,7 +28,12 @@
     [self prepareForTable];
     //self.navigationItem.title = @"friends";
     //self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"info" style:UIBarButtonItemStylePlain target:self action:@selector(toInfo)];
-   // self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"back" style:UIBarButtonItemStyleDone target:nil action:nil];
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"back" style:UIBarButtonItemStyleDone target:nil action:@selector(backFromBottleInfoViewController)];
+    NSLog(@"this is bottle view");
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    NSLog(@"Bottle view will apear");
 }
 
 - (void)setBottleArray:(NSMutableArray *)bottleArray
@@ -68,7 +72,14 @@
     //}
     NSLog(@"row is %ld",(long)row);
     [_bottleInfoViewController setBottle:[self.bottleArray objectAtIndex:row]];
+    _bottleInfoViewController.index = row;
     [self.navigationController pushViewController:_bottleInfoViewController animated:YES];
+}
+
+- (void)backFromBottleInfoViewController{
+    UIView *view = [self.view viewWithTag:1000];
+    [view removeFromSuperview];
+    [self prepareForTable];
 }
 
 
@@ -82,43 +93,60 @@
 //为UIViewController添加TableView
 - (void)prepareForTable
 {
-   // NSMutableArray *list = [NSMutableArray arrayWithObjects:@"Tom",@"Mike",@"Lucy",@"Sheldon",@"Leonard",@"Raj",@"Amy",@"Java",@"C",@"C++",@"C#",@"J2EE",@"JSP",@"Objective-C", nil];
+   
+//    Bottle *bottle1 = [[Bottle alloc] init];
+//    Message *message11 = [[Message alloc] init];
+//    message11.sender = @"message11";
+//    message11.content = @"content11";
+//    [bottle1.messageArray addObject:message11];
+//    [bottle1 setThrower:@"Tom"];
+//    
+//    Bottle *bottle2 = [[Bottle alloc] init];
+//    Message *message21 = [[Message alloc] init];
+//    message21.sender = @"message21";
+//    message21.content = @"content21";
+//    Message *message22 = [[Message alloc] init];
+//    message22.sender = @"message22";
+//    message22.content = @"content22";
+//    [bottle2 setThrower:@"Mike"];
+//    [bottle2.messageArray addObject:message21];
+//    [bottle2.messageArray addObject:message22];
+//    
+//   
+//    NSData *bottle1Data = [NSKeyedArchiver archivedDataWithRootObject:bottle1];
+//    NSData *bottle2Data = [NSKeyedArchiver archivedDataWithRootObject:bottle2];
+//   
+//    [self.bottleArray addObject:bottle1];
+//    [self.bottleArray addObject:bottle2];
+//    NSArray *bottleArrayUnMutable = [NSArray arrayWithObjects:bottle1Data,bottle2Data, nil];
+//   
+//    [self.nsUserDefaultsDao addObject:bottleArrayUnMutable forKey:@"bottleArray"];
+
     
-    Bottle *bottle1 = [[Bottle alloc] init];
-    Message *message11 = [[Message alloc] init];
-    message11.sender = @"message11";
-    message11.content = @"content11";
-    [bottle1.messageArray addObject:message11];
-    [bottle1 setThrower:@"Tom"];
-    
-    Bottle *bottle2 = [[Bottle alloc] init];
-    Message *message21 = [[Message alloc] init];
-    message21.sender = @"message21";
-    message21.content = @"content21";
-    Message *message22 = [[Message alloc] init];
-    message22.sender = @"message22";
-    message22.content = @"content22";
-    [bottle2 setThrower:@"Mike"];
-    [bottle2.messageArray addObject:message21];
-    [bottle2.messageArray addObject:message22];
-    
-    [self.bottleArray addObject:bottle1];
-    [self.bottleArray addObject:bottle2];
-    
-    //[self.nsUserDefaultsDao addObject:self.bottleArray forKey:@"bottleArray"];
+    NSMutableArray *mutableBottleArray = [self.nsUserDefaultsDao getObject:@"bottleArray"];
+    for (NSData *data in mutableBottleArray) {
+        Bottle *bottle = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        NSLog(@"111");
+        [self.bottleArray addObject:bottle];
+    }
     
     self.tableHeight = [self.bottleArray count]*44;
     //self.friendsList = list;
     NSLog(@"height is :%f,width is :%f",self.view.frame.size.height,self.view.frame.size.width);
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, 320, self.tableHeight) style:UITableViewStylePlain];
-   // UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 122, 320, 397) style:UITableViewStylePlain];
-    //UITableView *tab = [[UITableView alloc] init];
     [tableView setBackgroundColor:[UIColor grayColor]];
-    self.friendsTable = tableView;
-    self.friendsTable.dataSource = self;
-    self.friendsTable.delegate = self;
-    [self.view addSubview:self.friendsTable];
+    self.bottleTable = tableView;
+    self.bottleTable.dataSource = self;
+    self.bottleTable.delegate = self;
+    self.bottleTable.tag = 1000;
+    [self.view addSubview:self.bottleTable];
     
+    
+}
+
+//存储到NSUserDefaults
+- (void)saveForNSUserDefaults:(id)object
+{
     
 }
 

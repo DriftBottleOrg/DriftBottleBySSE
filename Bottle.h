@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Message.h"
 
-@interface Bottle : NSObject
+@interface Bottle : NSObject <NSCoding>
 
 - (void)setThrower:(NSString *)thrower;
 - (NSString *)thrower;

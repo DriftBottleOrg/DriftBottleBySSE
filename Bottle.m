@@ -61,4 +61,19 @@
     return self.messageArray;
 }
 
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    if(self = [super init])
+    {
+        self.thrower = [aDecoder decodeObjectForKey:@"thrower"];
+        self.messageArray = [aDecoder decodeObjectForKey:@"messageArray"];
+    }
+    return self;
+}
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.thrower forKey:@"thrower"];
+    [aCoder encodeObject:self.messageArray forKey:@"messageArray"];
+}
+
 @end
