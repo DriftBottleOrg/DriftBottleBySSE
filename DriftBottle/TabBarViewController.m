@@ -11,6 +11,7 @@
 #import "Bottle.h"
 #import "Message.h"
 #import "NSUserDefaultsDao.h"
+#import "UserInfo.h"
 
 @interface TabBarViewController ()
 @property (strong, nonatomic)NSUserDefaultsDao *nsUserDefaultsDao;
@@ -52,32 +53,56 @@
 //一开始的时候手动载入两个漂流瓶
 - (void)saveBottle
 {
+    UserInfo *Tom = [[UserInfo alloc] init];
+    [Tom setUserId:1];
+    [Tom setLogId:1];
+    [Tom setUserName:@"Tom"];
+    [Tom setRealName:@"Tom Weise"];
+    [Tom setAddress:@"China"];
+    UIImage *image = [UIImage imageNamed:@"headPicture"];
+    [Tom setHeadPicture:image];
+    
+    UserInfo *Mike = [[UserInfo alloc] init];
+    [Mike setUserId:2];
+    [Mike setLogId:2];
+    [Mike setUserName:@"Mike"];
+    [Mike setRealName:@"Mike Wilson"];
+    [Mike setAddress:@"America"];
+    image = [UIImage imageNamed:@"headPicture2"];
+    [Mike setHeadPicture:image];
+    
+    NSData *TomData = [NSKeyedArchiver archivedDataWithRootObject:Tom];
+    NSData *MikeData = [NSKeyedArchiver archivedDataWithRootObject:Mike];
+    [self.nsUserDefaultsDao addObject:TomData forKey:@"Tom"];
+    [self.nsUserDefaultsDao addObject:MikeData forKey:@"Mike"];
+    
     Bottle *bottle1 = [[Bottle alloc] init];
     Message *message11 = [[Message alloc] init];
-    message11.sender = @"message11";
-    message11.content = @"content11";
+    [message11 setSenderId:Tom.userId];
+    [message11 setContent:@"content11"];
     [bottle1.messageArray addObject:message11];
-    [bottle1 setThrower:@"Tom"];
+    [bottle1 setThrowerId:Tom.userId];
     
     Bottle *bottle2 = [[Bottle alloc] init];
     Message *message21 = [[Message alloc] init];
-    message21.sender = @"message21";
-    message21.content = @"content21";
+    [message21 setSenderId:Mike.userId];
+    [message21 setContent:@"content21"];
     Message *message22 = [[Message alloc] init];
-    message22.sender = @"message22";
-    message22.content = @"content22";
-    [bottle2 setThrower:@"Mike"];
+    [message22 setSenderId:Tom.userId];
+    [message22 setContent:@"content22"];
+    [bottle2 setThrowerId:Mike.userId];
     [bottle2.messageArray addObject:message21];
     [bottle2.messageArray addObject:message22];
     
-
+    
     NSData *bottle1Data = [NSKeyedArchiver archivedDataWithRootObject:bottle1];
     NSData *bottle2Data = [NSKeyedArchiver archivedDataWithRootObject:bottle2];
-
+    
     
     NSArray *bottleArrayUnMutable = [NSArray arrayWithObjects:bottle1Data,bottle2Data, nil];
     
-    [self.nsUserDefaultsDao addObject:bottleArrayUnMutable forKey:@"bottleArray"];
+    [self.nsUserDefaultsDao addObject:bottleArrayUnMutable forKey:@"ReceivedBottleArray"];
+    [self.nsUserDefaultsDao addObject:bottleArrayUnMutable forKey:@"PostedBottleArray"];
 }
 
 - (void)viewWillAppear:(BOOL)animated

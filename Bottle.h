@@ -11,8 +11,8 @@
 
 @interface Bottle : NSObject <NSCoding>
 
-- (void)setThrower:(NSString *)thrower;
-- (NSString *)thrower;
+- (void)setThrowerId:(int)throwerId;
+- (int)throwerId;
 
 - (void)setMessageArray:(NSMutableArray *)messageArray;
 - (NSMutableArray *)messageArray;

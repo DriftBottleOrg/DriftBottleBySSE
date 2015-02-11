@@ -35,6 +35,11 @@
     [self.nsUserDefaults synchronize];
 }
 
+- (void)removeObject:(id)object forKey:(NSString *)key
+{
+    //[self.nsUserDefaults ]
+}
+
 - (id)getObject:(NSString *)key
 {
     return [self.nsUserDefaults objectForKey:key];

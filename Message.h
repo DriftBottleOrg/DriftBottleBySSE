@@ -10,9 +10,8 @@
 
 @interface Message : NSObject <NSCoding>
 
-- (void)setSender:(NSString *)sender;
-- (NSString *)sender;
-
+- (void)setSenderId:(int)senderId;
+- (int)senderId;
 - (void)setContent:(NSString *)content;
 - (NSString *)content;
 

@@ -36,20 +36,21 @@
 }
 - (IBAction)send:(id)sender {
     Message *message = [[Message alloc] init];
-    message.sender = @"self";
-    message.content = self.textView.text;
+    [message setSenderId:3];
+    [message setContent:self.textView.text];
     
     Bottle *bottle = [[Bottle alloc] init];
-    bottle.thrower = @"mySelf";
+    [bottle setThrowerId:3];
     [bottle.messageArray addObject:message];
     
     NSData *bottleData = [NSKeyedArchiver archivedDataWithRootObject:bottle];
     
-    NSMutableArray *mutableBottleArray = [self.nsUserDefaultsDao getObject:@"bottleArray"];
+    NSMutableArray *mutableBottleArray = [self.nsUserDefaultsDao getObject:@"PostedBottleArray"];
     [mutableBottleArray addObject:bottleData];
     //[mutableBottleArray replaceObjectAtIndex:self.index withObject:bottleData];
-    [self.nsUserDefaultsDao addObject:mutableBottleArray forKey:@"bottleArray"];
+    [self.nsUserDefaultsDao addObject:mutableBottleArray forKey:@"PostedBottleArray"];
 
+    [self.navigationController popToRootViewControllerAnimated:YES];
     
     
 }

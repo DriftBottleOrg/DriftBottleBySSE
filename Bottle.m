@@ -10,13 +10,13 @@
 
 @interface Bottle()
 
-@property (strong,nonatomic)NSString *thrower;
+@property int throwerId;
 @property (strong,nonatomic)NSMutableArray *messageArray;
 
 @end
 
 @implementation Bottle
-@synthesize thrower = _thrower,messageArray = _messageArray;
+@synthesize throwerId = _throwerId,messageArray = _messageArray;
 
 //- (instancetype)init
 //{
@@ -27,15 +27,15 @@
 //    return self;
 //}
 
+- (void)setThrowerId:(int)throwerId
+{
+    _throwerId = throwerId;
+}
+- (int)throwerId
+{
+    return _throwerId;
+}
 
-- (void)setThrower:(NSString *)thrower
-{
-    _thrower = thrower;
-}
-- (NSString *)thrower
-{
-    return _thrower;
-}
 
 - (void)setMessageArray:(NSMutableArray *)messageArray
 {
@@ -65,14 +65,14 @@
 {
     if(self = [super init])
     {
-        self.thrower = [aDecoder decodeObjectForKey:@"thrower"];
+        self.throwerId = [aDecoder decodeIntForKey:@"throwerId"];
         self.messageArray = [aDecoder decodeObjectForKey:@"messageArray"];
     }
     return self;
 }
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
-    [aCoder encodeObject:self.thrower forKey:@"thrower"];
+    [aCoder encodeInt:self.throwerId forKey:@"throwerId"];
     [aCoder encodeObject:self.messageArray forKey:@"messageArray"];
 }
 

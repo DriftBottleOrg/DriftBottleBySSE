@@ -22,6 +22,7 @@
 		84AA62711A6FC3E1009A2D0D /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AA626F1A6FC3E1009A2D0D /* Message.m */; };
 		84AA62741A70E15E009A2D0D /* BottleInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AA62731A70E15E009A2D0D /* BottleInfoViewController.m */; };
 		84B064BE1A72A8600013DC47 /* fishSucceedGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 84B064BD1A72A85F0013DC47 /* fishSucceedGif.gif */; };
+		84B3F0E11A89BF81009FA2D9 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B3F0E01A89BF81009FA2D9 /* UserInfo.m */; };
 		84B7224F1A3D54A2008769BE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B7224E1A3D54A2008769BE /* main.m */; };
 		84B722521A3D54A2008769BE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B722511A3D54A2008769BE /* AppDelegate.m */; };
 		84B722551A3D54A2008769BE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B722541A3D54A2008769BE /* ViewController.m */; };
@@ -74,6 +75,8 @@
 		84AA62721A70E15E009A2D0D /* BottleInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BottleInfoViewController.h; sourceTree = "<group>"; };
 		84AA62731A70E15E009A2D0D /* BottleInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BottleInfoViewController.m; sourceTree = "<group>"; };
 		84B064BD1A72A85F0013DC47 /* fishSucceedGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = fishSucceedGif.gif; sourceTree = "<group>"; };
+		84B3F0DF1A89BF81009FA2D9 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
+		84B3F0E01A89BF81009FA2D9 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
 		84B722491A3D54A2008769BE /* DriftBottle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DriftBottle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B7224D1A3D54A2008769BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84B7224E1A3D54A2008769BE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -290,6 +293,8 @@
 				84CB38A41A429A150041F7B8 /* UserNameAndPassWord.m */,
 				84C322C21A4412BB00454A0F /* FriendsInfo.h */,
 				84C322C31A4412BB00454A0F /* FriendsInfo.m */,
+				84B3F0DF1A89BF81009FA2D9 /* UserInfo.h */,
+				84B3F0E01A89BF81009FA2D9 /* UserInfo.m */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -409,6 +414,7 @@
 				846064751A3F0E4F008F375E /* FriendsViewController.m in Sources */,
 				84B722551A3D54A2008769BE /* ViewController.m in Sources */,
 				8460646D1A3F0E18008F375E /* ThrowViewController.m in Sources */,
+				84B3F0E11A89BF81009FA2D9 /* UserInfo.m in Sources */,
 				0919F0791A692DA20080E31C /* Reachability.m in Sources */,
 				84CB38A81A429E8E0041F7B8 /* RegisterViewController.m in Sources */,
 				84C322C71A44189900454A0F /* AddFriendUIViewController.m in Sources */,

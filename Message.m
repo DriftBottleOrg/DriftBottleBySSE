@@ -9,20 +9,21 @@
 #import "Message.h"
 
 @interface Message()
-@property (strong,atomic)NSString *sender;
+@property int senderId;
 @property (strong,atomic)NSString *content;
 
 @end
 
 @implementation Message
-@synthesize sender = _sender,content = _content;
-- (void)setSender:(NSString *)sender
+@synthesize senderId = _senderId,content = _content;
+
+- (void)setSenderId:(int)senderId
 {
-    _sender = sender;
+    _senderId = senderId;
 }
-- (NSString *)sender
+- (int)senderId
 {
-    return _sender;
+    return _senderId;
 }
 
 - (void)setContent:(NSString *)content
@@ -38,14 +39,14 @@
 {
     if(self = [super init])
     {
-        self.sender = [aDecoder decodeObjectForKey:@"sender"];
+        self.senderId = [aDecoder decodeIntForKey:@"senderId"];
         self.content = [aDecoder decodeObjectForKey:@"content"];
     }
     return self;
 }
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
-    [aCoder encodeObject:self.sender forKey:@"sender"];
+    [aCoder encodeInt:self.senderId forKey:@"senderId"];
     [aCoder encodeObject:self.content forKey:@"content"];
 }
 

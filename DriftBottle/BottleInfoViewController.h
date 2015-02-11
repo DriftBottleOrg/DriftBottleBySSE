@@ -11,6 +11,7 @@
 
 @interface BottleInfoViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 @property  NSUInteger *index;
+@property NSString *status;
 - (void)setBottle:(Bottle *)bottle;
 - (Bottle *)bottle;
 

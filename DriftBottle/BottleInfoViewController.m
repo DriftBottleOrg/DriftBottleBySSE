@@ -19,7 +19,7 @@
 @end
 
 @implementation BottleInfoViewController
-@synthesize bottle = _bottle,index;
+@synthesize bottle = _bottle,index,status;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -81,7 +81,7 @@
     }
     NSUInteger row = [indexPath row];
     Message *message = [[self.bottle messageArray] objectAtIndex:row];
-    cell.textLabel.text = message.sender;
+    cell.textLabel.text = [NSString stringWithFormat:@"%d",message.senderId];
     cell.imageView.image = [UIImage imageNamed:@"headPicture"];
     cell.detailTextLabel.text = message.content;
     return cell;
@@ -94,17 +94,23 @@
     return indexPath;
 }
 
+//回复
 - (IBAction)reply:(id)sender {
     Message *message = [[Message alloc] init];
-    message.sender = @"self";
-    message.content = self.textView.text;
+    [message setSenderId:3];
+    [message setContent:self.textView.text];
     [self.bottle.messageArray addObject:message];
     NSData *bottleData = [NSKeyedArchiver archivedDataWithRootObject:self.bottle];
     
-    NSMutableArray *mutableBottleArray = [self.nsUserDefaultsDao getObject:@"bottleArray"];
-    [mutableBottleArray replaceObjectAtIndex:self.index withObject:bottleData];
-    [self.nsUserDefaultsDao addObject:mutableBottleArray forKey:@"bottleArray"];
-    
+    if([self.status isEqualToString:@"Received"]){
+        NSMutableArray *mutableBottleArray = [self.nsUserDefaultsDao getObject:@"ReceivedBottleArray"];
+        [mutableBottleArray replaceObjectAtIndex:self.index withObject:bottleData];
+        [self.nsUserDefaultsDao addObject:mutableBottleArray forKey:@"ReceivedottleArray"];
+    }else if([self.status isEqualToString:@"Posted"]){
+        NSMutableArray *mutableBottleArray = [self.nsUserDefaultsDao getObject:@"PostedBottleArray"];
+        [mutableBottleArray replaceObjectAtIndex:self.index withObject:bottleData];
+        [self.nsUserDefaultsDao addObject:mutableBottleArray forKey:@"PostedBottleArray"];
+    }
     UIView *view = [self.view viewWithTag:2000];
     [view removeFromSuperview];
     self.textView.text = nil;
