@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NormalBottleViewController : UIViewController<UITextViewDelegate>
+@interface NormalBottleViewController : UIViewController<UITextViewDelegate, UIImagePickerControllerDelegate,UITableViewDataSource,UITableViewDelegate>
 
 
 
